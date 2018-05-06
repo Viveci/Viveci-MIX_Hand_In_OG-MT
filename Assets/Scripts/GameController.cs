@@ -129,18 +129,18 @@ public class GameController : MonoBehaviour {
         //transform.Translate(new Vector3(cam.transform.rotation.x*-0.2f,cam.transform.rotation.y*-0.2f,speed.z* cam.transform.rotation.z));
 
         //dummy movement on pc
-        if (Input.GetKeyDown(KeyCode.D)) {
+        if ((Input.GetKeyDown(KeyCode.D) || OVRInput.GetDown(OVRInput.Button.DpadRight)) && transform.position.x <= 1) {
             transform.Translate(new Vector3(1f,0f,0f));
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if ((Input.GetKeyDown(KeyCode.A) || OVRInput.GetDown(OVRInput.Button.DpadLeft)) && transform.position.x >= 0)
         {
             transform.Translate(new Vector3(-1f, 0f, 0f));
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if ((Input.GetKeyDown(KeyCode.W) || OVRInput.GetDown(OVRInput.Button.DpadUp)) && transform.position.y < 2.5)
         {
             transform.Translate(new Vector3(0f, 1f, 0f));
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if ((Input.GetKeyDown(KeyCode.S) || OVRInput.GetDown(OVRInput.Button.DpadDown)) && transform.position.y > 0.5)
         {
             transform.Translate(new Vector3(0f, -1f, 0f));
         }
